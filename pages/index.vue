@@ -50,13 +50,13 @@ import BadAppleApp from '~/components/BadAppleApp.vue'
 import TerminalApp from '~/components/TerminalApp.vue'
 
 const icons = ref([
-  { app: 'myComputer', label: 'My Desktop', icon: '/images/monitor_windows.png', x: 20, y: 20 },
-  { app: 'chrome', label: 'Internet', icon: '/images/world-2.png', x: 20, y: 110 },
-  { app: 'notepad', label: 'Notes', icon: '/images/signature-1.png', x: 20, y: 200 },
-  { app: 'paint', label: 'Paint', icon: '/images/paint.png', x: 20, y: 290 },
+  { app: 'myComputer', label: 'My Desktop', icon: '/public/images/monitor_windows.png', x: 20, y: 20 },
+  { app: 'chrome', label: 'Internet', icon: '/public/images/world-2.png', x: 20, y: 110 },
+  { app: 'notepad', label: 'Notes', icon: '/public/images/signature-1.png', x: 20, y: 200 },
+  { app: 'paint', label: 'Paint', icon: '/public/images/paint.png', x: 20, y: 290 },
   { app: 'mediaPlayer', label: 'Media Player', icon: 'https://storage.googleapis.com/gemini-95-icons/ytmediaplayer.png', x: 20, y: 380 },
-  { app: 'badapple', label: 'Secreto', icon: '/images/video.png', x: 20, y: 470 },
-  { app: 'terminal', label: 'MS-DOS Prompt', icon: '/images/console.png', x: 120, y: 20 },
+  { app: 'badapple', label: 'Secreto', icon: '/public/images/video.png', x: 20, y: 470 },
+  { app: 'terminal', label: 'MS-DOS Prompt', icon: '/public/images/console.png', x: 120, y: 20 },
 ])
 
 const appComponents = {

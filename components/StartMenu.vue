@@ -33,10 +33,10 @@
 
 <script setup lang="ts">
 const items = [
-  { app: 'myComputer', label: 'Meu Computador', icon: '/images/monitor_windows.png' },
-  { app: 'chrome', label: 'Internet Explorer', icon: '/images/world-2.png' },
-  { app: 'notepad', label: 'Bloco de Notas', icon: '/images/signature-1.png' },
-  { app: 'paint', label: 'Paintbrush', icon: '/images/paint.png' },
+  { app: 'myComputer', label: 'Meu Computador', icon: '/public/images/monitor_windows.png' },
+  { app: 'chrome', label: 'Internet Explorer', icon: '/public/images/world-2.png' },
+  { app: 'notepad', label: 'Bloco de Notas', icon: '/public/images/signature-1.png' },
+  { app: 'paint', label: 'Paintbrush', icon: '/public/images/paint.png' },
   { app: 'mediaPlayer', label: 'Media Player', icon: 'https://storage.googleapis.com/gemini-95-icons/ytmediaplayer.png' },
 ]
 </script>

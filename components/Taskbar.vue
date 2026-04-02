@@ -2,7 +2,7 @@
 <template>
   <div :id="'taskbar'" :class="$style.taskbar">
     <button :id="'start-button'" :class="$style.startButton" @click="toggleStartMenu">
-      <img src="/images/win98.png" alt="Start" :class="$style.startImg" />
+      <img src="/public/images/win98.png" alt="Start" :class="$style.startImg" />
     </button>
     <div :id="'taskbar-apps'" :class="$style.taskbarApps">
       <button
