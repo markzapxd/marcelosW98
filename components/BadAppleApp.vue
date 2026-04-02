@@ -1,6 +1,6 @@
 <template>
   <div class="badapple-container">
-    <video ref="videoRef" src="/public/videos/bad_apple.mp4" loop playsinline style="display:none"></video>
+    <video ref="videoRef" src="/videos/bad_apple.mp4" loop playsinline style="display:none"></video>
     <canvas ref="canvasRef"></canvas>
   </div>
 </template>
