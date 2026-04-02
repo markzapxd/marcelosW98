@@ -1,0 +1,95 @@
+.taskbar {
+  background: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  border-bottom: 2px solid #000000;
+  height: 30px;
+  min-height: 30px;
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+.startButton {
+  background: #c0c0c0;
+  border: none;
+  width: auto;
+  height: 24px;
+  margin-right: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+}
+
+.startImg {
+  height: 24px;
+  width: auto;
+}
+
+.taskbarApps {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 100%;
+}
+
+.taskbarAppBtn {
+  background: #c0c0c0;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+  box-shadow: inset 1px 1px 0px #ffffff;
+  color: black;
+  font-family: "MS Sans Serif", Arial, sans-serif;
+  font-size: 11px;
+  padding: 1px 4px;
+  height: 22px;
+  width: 160px;
+  max-width: 160px;
+  border-radius: 0;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-align: left;
+}
+
+.taskbarAppBtn:active {
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  box-shadow: none;
+  padding: 2px 3px 0px 5px;
+}
+
+.active {
+  background: #e0e0e0;
+  background-image: linear-gradient(45deg, #c0c0c0 25%, transparent 25%), 
+                    linear-gradient(-45deg, #c0c0c0 25%, transparent 25%), 
+                    linear-gradient(45deg, transparent 75%, #c0c0c0 75%), 
+                    linear-gradient(-45deg, transparent 75%, #c0c0c0 75%);
+  background-size: 2px 2px;
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  box-shadow: none;
+  padding: 2px 3px 0px 5px !important;
+}
+
+.btnText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 2px;
+}

@@ -1,0 +1,110 @@
+.active .window-titlebar {
+  background-color: #000080;
+  color: white;
+}
+/* Estilo Win95 para janelas */
+.window {
+  background-color: #C0C0C0;
+  border-top: 2px solid #FFFFFF;
+  border-left: 2px solid #FFFFFF;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  min-width: 320px;
+  min-height: 180px;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.window-titlebar {
+  background-color: #808080;
+  color: #C0C0C0;
+  padding: 3px 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: grab;
+  height: 22px;
+  box-sizing: border-box;
+  user-select: none;
+}
+.window-titlebar:active {
+  cursor: grabbing;
+}
+.window-title {
+  margin-right: auto;
+  margin-left: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 60px);
+}
+.window-controls {
+  display: flex;
+  gap: 3px;
+}
+.window-control-button {
+  width: 16px;
+  height: 16px;
+  background-color: #C0C0C0;
+  border-top: 1px solid #FFFFFF;
+  border-left: 1px solid #FFFFFF;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-family: "Times New Roman", serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 0;
+  padding: 0;
+  color: black;
+}
+.window-control-button:active {
+  border-top: 1px solid #000000;
+  border-left: 1px solid #000000;
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  box-shadow: none;
+}
+.window-content {
+  padding: 2px;
+  font-size: 0.9rem;
+  flex-grow: 1;
+  overflow: auto;
+  background-color: white;
+  border: 1px inset #808080;
+  margin: 2px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.resize-handle {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 16px;
+  height: 16px;
+  background: url('data:image/svg+xml;utf8,<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="13" width="3" height="2" fill="gray"/><rect x="13" y="10" width="2" height="3" fill="gray"/></svg>') no-repeat center center;
+  cursor: nwse-resize;
+  z-index: 10;
+}
+.window.transparent {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+.window.transparent .window-titlebar {
+  opacity: 0.5; /* Semi-transparente para ainda ser arrastável */
+}
+.window.transparent .window-content {
+  background-color: transparent;
+  border: none;
+}
