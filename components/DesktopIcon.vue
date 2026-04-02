@@ -35,9 +35,13 @@ function onMouseDown(e: MouseEvent) {
 
 function onMouseMove(e: MouseEvent) {
   if (!isDragging) return
+  
+  const newX = Math.max(10, Math.min(e.clientX - startX, window.innerWidth - 80))
+  const newY = Math.max(10, Math.min(e.clientY - startY, window.innerHeight - 80 - 40))
+
   emit('move', {
-    x: e.clientX - startX,
-    y: e.clientY - startY
+    x: newX,
+    y: newY
   })
 }
 

@@ -76,7 +76,6 @@ const windows = ref<any[]>([])
 
 
 function openApp(app: string) {
-  // Removido o window.open, agora abre no desktop simulado
   const existing = windows.value.find(w => w.id === app)
   if (existing) {
     existing.visible = true
@@ -85,25 +84,22 @@ function openApp(app: string) {
     return
   }
   const isBadApple = app === 'badapple'
-  const isMediaPlayer = app === 'mediaPlayer'
   
-  // Configurações de tamanho e posição
+  // Configurações de tamanho
   let initialWidth = 420
   let initialHeight = 320
-  let initialX = Math.floor(Math.random() * (window.innerWidth - initialWidth)) + 40
-  let initialY = Math.floor(Math.random() * (window.innerHeight - initialHeight - 60)) + 30
-
+  
   if (isBadApple) {
     initialWidth = 800
     initialHeight = 600
-    initialX = (window.innerWidth - initialWidth) / 2
-    initialY = (window.innerHeight - initialHeight - 40) / 2
-  } else if (isMediaPlayer) {
+  } else if (app === 'mediaPlayer') {
     initialWidth = 470
     initialHeight = 373
-    initialX = 1335
-    initialY = 99
   }
+
+  // Centralizar a janela
+  let initialX = Math.max(0, Math.floor((window.innerWidth - initialWidth) / 2))
+  let initialY = Math.max(0, Math.floor((window.innerHeight - initialHeight - 40) / 2))
 
   globalZ++
   const id = app
@@ -157,7 +153,25 @@ function setActiveWindow(id: string) {
 }
 
 function moveIcon(icon: any, pos: { x: number, y: number }) {
-  icon.x = pos.x
-  icon.y = pos.y
+  // Impedir que o ícone saia da tela durante o arraste
+  icon.x = Math.max(10, Math.min(pos.x, window.innerWidth - 80))
+  icon.y = Math.max(10, Math.min(pos.y, window.innerHeight - 80 - 40))
 }
+
+const adjustIconsToScreen = () => {
+  icons.value.forEach(icon => {
+    icon.x = Math.max(10, Math.min(icon.x, window.innerWidth - 80))
+    icon.y = Math.max(10, Math.min(icon.y, window.innerHeight - 80 - 40))
+  })
+}
+
+import { onMounted, onUnmounted } from 'vue'
+onMounted(() => {
+  adjustIconsToScreen()
+  window.addEventListener('resize', adjustIconsToScreen)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', adjustIconsToScreen)
+})
 </script>

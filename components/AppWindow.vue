@@ -75,8 +75,11 @@ function startDrag(e: MouseEvent) {
 }
 function onDrag(e: MouseEvent) {
   if (!dragging) return
-  position.x = Math.max(0, Math.min(e.clientX - dragOffset.x, window.innerWidth - size.w))
-  position.y = Math.max(0, Math.min(e.clientY - dragOffset.y, window.innerHeight - size.h - 40))
+  // Clamping progressivo para evitar que a janela suma
+  const maxX = window.innerWidth - size.w
+  const maxY = window.innerHeight - size.h - 40 // Buffer para a taskbar
+  position.x = Math.max(0, Math.min(e.clientX - dragOffset.x, maxX))
+  position.y = Math.max(0, Math.min(e.clientY - dragOffset.y, maxY))
 }
 function stopDrag() {
   dragging = false
@@ -95,8 +98,13 @@ function startResize(e: MouseEvent) {
 }
 function onResizeMove(e: MouseEvent) {
   if (!resizing.value) return
-  size.w = Math.max(200, resizeStart.w + (e.clientX - resizeStart.x))
-  size.h = Math.max(150, resizeStart.h + (e.clientY - resizeStart.y))
+  
+  // Limites de tamanho baseados no viewport e posição atual
+  const maxW = window.innerWidth - position.x
+  const maxH = window.innerHeight - position.y - 40 // Taskbar
+  
+  size.w = Math.max(200, Math.min(resizeStart.w + (e.clientX - resizeStart.x), maxW))
+  size.h = Math.max(150, Math.min(resizeStart.h + (e.clientY - resizeStart.y), maxH))
 }
 function stopResize() {
   resizing.value = false

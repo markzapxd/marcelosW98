@@ -7,7 +7,7 @@
     <div class="media-player-video-container flex-1 flex items-center justify-center bg-black">
       <div id="youtube-player-mediaPlayer" class="w-full h-full flex items-center justify-center">
         <iframe v-if="videoId" :src="embedUrl" frameborder="0" allowfullscreen class="w-full h-64"></iframe>
-        <p v-else class="media-player-status-message text-white">Loading PLayer...</p>
+        <p v-else class="media-player-status-message text-white">Loading Player...</p>
       </div>
     </div>
     <div class="media-player-controls-panel flex items-center gap-2 p-2 bg-gray-200 border-t border-gray-400">
